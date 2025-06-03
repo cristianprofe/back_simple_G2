@@ -1,25 +1,21 @@
 //configuración de express
 import express from "express";
-import cors from "cors";
+import cors from "cors"; //vamos a hacer app, no lo necesito
 import morgan from "morgan";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
-import { options } from "./swaggerOptions";
-import bodyParser from "body-parser";
-
+import { options } from "./swaggerOptions.js";
 const spec = swaggerJSDoc(options);
-
-import rutas from "./router/users";
+import user from "./router/users.js";
 
 const app = express();
 
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(bodyParser.json());
 
 //Rutas
-app.use(rutas);
+app.use("/users", user); //dominio.com/users
 
 //documentacion
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(spec));
