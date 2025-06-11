@@ -1,7 +1,7 @@
 //archivo para manejar las rutas de usuarios
 
 import { Router } from "express";
-import { createUsers } from "../controller/users.js";
+import { createUsers, login } from "../controller/users.js";
 
 //objeto para manejo de url
 const routerUsers = Router();
@@ -13,5 +13,13 @@ const routerUsers = Router();
  *      sumary: crea usuarios
  */
 routerUsers.post("/", createUsers);
+
+/**
+ * @swagger
+ * /:
+ *  get:
+ *      sumary: Login de usuarios
+ */
+routerUsers.get("/login", login);
 
 export default routerUsers;

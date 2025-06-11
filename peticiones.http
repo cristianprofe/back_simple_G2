@@ -2,14 +2,24 @@
 @user = {{urlBase}}/users
 
 
+
 POST {{user}}/
 Content-Type: application/json
 
 {
-    "dni": "2020",
+    "dni": "2024",
     "nombre": "juan",
     "apellido": "perez",
-    "email": "juan.perez@example.com",
+    "email": "juan.pere11z@example.com",
     "contrasena": "asd123",
     "is_profe": false
+}
+
+###
+GET {{user}}/login
+Content-Type: application/json
+
+{
+    "mail": "juan.pere11z@example.com",
+    "contrasena": "asd123"
 }
